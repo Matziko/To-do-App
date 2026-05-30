@@ -12,6 +12,8 @@
        </p>
     </label>
     <textarea type="text" id="todo-input" name="todoTask" [(ngModel)]="newTaskText" required [class]="'textareapriority-' + selectedPriority"required placeholder="Add a title (required)"></textarea>
+     <p class="input-instruction">
+       </p>
     <textarea type="text" id="todo-description" name="todoDescription" [(ngModel)]="newTaskDescription" placeholder="Add a description (optional)"></textarea>
     <input type="datetime-local" value="dd-MMTHH:mm" id="todo-deadline" name="todoDeadline" [(ngModel)]="newTaskDeadline" placeholder="Add a deadline (optional)">
 

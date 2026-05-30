@@ -1,8 +1,12 @@
-<button class="createtodo" routerLink="/createtodo"><span>+</span>CREATE NEW TO-DO TASK</button>
+<button class="createtodo" routerLink="/createtodo"><span>✚</span>CREATE NEW TO-DO TASK</button>
 <div class="kanban-board" cdkDropListGroup>
 
   <div class="container">
-    <h2>To Do</h2>
+    <div class="list-top-bar">
+        <h2>To Do</h2>
+        <button>+</button>
+
+    </div>
     <div
       cdkDropList
       id="todo-list"
