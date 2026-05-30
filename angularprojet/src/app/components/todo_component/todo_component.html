@@ -1,0 +1,107 @@
+<button class="createtodo" routerLink="/createtodo"><span>+</span>CREATE NEW TO-DO TASK</button>
+<div class="kanban-board" cdkDropListGroup>
+
+  <div class="container">
+    <h2>To Do</h2>
+    <div
+      cdkDropList
+      id="todo-list"
+      [cdkDropListData]="todoList"
+      (cdkDropListDropped)="drop($event)"
+      class="example-list">
+      @for (item of todoList; track item.id) {
+        <div class="example-box" cdkDrag [class]="item.priority">
+
+            <div class="card-header">
+                <p class="task-title" (click)="toggleDescription(item)">{{item.task}}</p>
+                
+            </div>
+            
+            @if (item.showDescription) {
+                <div class="card-description">
+                    <p>{{item.description || 'No description'}}</p>
+                </div>
+            }
+            <div class="card-footer">
+                <button class="delete-button" (click)="deleteTodo(item.id)">
+                ❌</button>
+                <span class="deadline-text" *ngIf="item.deadline">
+                    Due: {{item.deadline | date: 'MM/dd/yyyy h:mm a'}}
+                </span>
+          <span [class]="'priority-badge' + item.priority"required>{{item.priority}}</span>
+        </div>
+      
+    </div>
+}  
+    </div>
+    </div>
+
+  <div class="container">
+    <h2>Doing</h2>
+    <div
+      cdkDropList
+      id="doing-list"
+      [cdkDropListData]="doingList"
+      (cdkDropListDropped)="drop($event)"
+      class="example-list">
+      @for (item of doingList; track item.id) {
+        <div class="example-box" cdkDrag [class]="item.priority">
+          
+            <div class="card-header">
+                <p class="task-title" (click)="toggleDescription(item)">{{item.task}}</p>
+                
+            </div>
+            
+            @if (item.showDescription) {
+                <div class="card-description">
+                    <p>{{item.description || 'No description'}}</p>
+                </div>
+            }
+            <div class="card-footer">
+                <button class="delete-button" (click)="deleteTodo(item.id)">
+                ❌</button>
+                <span class="deadline-text" *ngIf="item.deadline">
+                    Due: {{item.deadline | date: 'shortDate'}}
+                </span>
+          <span [class]="'priority-badge' + item.priority"required>{{item.priority}}</span>
+        </div>
+    </div>
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Done</h2>
+    <div
+      cdkDropList
+      id="done-list"
+      [cdkDropListData]="doneList"
+      (cdkDropListDropped)="drop($event)"
+      class="example-list">
+      @for (item of doneList; track item.id) {
+        <div class="example-box" cdkDrag [class]="item.priority">
+          
+            <div class="card-header">
+                <p class="task-title" (click)="toggleDescription(item)">{{item.task}}</p>
+                
+            </div>
+            
+            @if (item.showDescription) {
+                <div class="card-description">
+                    <p>{{item.description || 'No description'}}</p>
+                </div>
+            }
+            <div class="card-footer">
+                <button class="delete-button" (click)="deleteTodo(item.id)">
+                ❌</button>
+                <span class="deadline-text" *ngIf="item.deadline">
+                    Due: {{item.deadline | date: 'shortDate'}}
+                </span>
+          <span [class]="'priority-badge' + item.priority"required>{{item.priority}}</span>
+        </div>
+    </div>
+      }
+    </div>
+  </div>
+  </div>
+

@@ -1,0 +1,48 @@
+<div class="everything">
+    <div class="noteverything">
+<div class="todo-input-title">
+    <h1 [attr.data-text]="headerPhrase">{{ headerPhrase }}</h1>
+</div>
+
+<form (ngSubmit)="onFormSubmit()">
+
+    <label for="todo-input">
+       <p class="input-instruction">
+ Type your task here:
+       </p>
+    </label>
+    <textarea type="text" id="todo-input" name="todoTask" [(ngModel)]="newTaskText" required [class]="'textareapriority-' + selectedPriority"required placeholder="Add a title (required)"></textarea>
+    <textarea type="text" id="todo-description" name="todoDescription" [(ngModel)]="newTaskDescription" placeholder="Add a description (optional)"></textarea>
+    <input type="datetime-local" value="dd-MMTHH:mm" id="todo-deadline" name="todoDeadline" [(ngModel)]="newTaskDeadline" placeholder="Add a deadline (optional)">
+
+
+
+    <div class="priority-selector">
+
+        <button type="button" class="priority-button-low" (click)="setPriority('low')"
+            [class.active]="selectedPriority === 'low'">
+            LOW 🐌
+        </button>
+
+        <button type="button" class="priority-button-medium" (click)="setPriority('medium')"
+            [class.active]="selectedPriority === 'medium'">
+            MEDIUM 🏃
+        </button>
+
+        <button type="button" class="priority-button-high" (click)="setPriority('high')"
+            [class.active]="selectedPriority === 'high'">
+            HIGH 🚀
+        </button>
+
+    </div>
+<div class="utility-buttons">
+
+    <span [title]="!newTaskText.trim() ? 'There is nothing to submit' : ''" class="submit-tooltip-wrapper">
+    <button type="submit" class="submit-button" [disabled]="!newTaskText.trim()">
+        SUBMIT ⮞
+    </button></span>
+</div>
+
+</form>
+</div>
+</div>
