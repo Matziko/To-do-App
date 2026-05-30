@@ -1,0 +1,70 @@
+# ==========================================
+# 1. Java, Maven, & Spring Boot
+# ==========================================
+*.class
+*.log
+*.jar
+*.war
+*.ear
+target/
+bin/
+build/
+.gradle/
+out/
+
+# Maven Wrapper JAR should be ignored (it can download itself), 
+# but keep the properties file.
+.mvn/wrapper/maven-wrapper.jar
+
+# ==========================================
+# 2. Node / Frontend (Just in case you add it)
+# ==========================================
+node_modules/
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/.angular/cache
+.sass-cache/
+npm-debug.log
+yarn-error.log
+
+# ==========================================
+# 3. Secrets & Credentials (Crucial)
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.jks
+
+# ==========================================
+# 4. IDEs and Editors (VS Code, IntelliJ, STS, NetBeans)
+# ==========================================
+.vscode/
+.history/*
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated
+.springBeans
+.sts4-cache
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+*.launch
+*.sublime-workspace
+
+# ==========================================
+# 5. OS Garbage Files
+# ==========================================
+.DS_Store
+Thumbs.db
