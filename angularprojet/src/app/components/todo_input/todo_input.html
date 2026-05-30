@@ -1,11 +1,11 @@
-<div class="everything">
-    <div class="noteverything">
+<div class="modal-backdrop">
+  <div class="modal-window">
+    <button (click)="close()">↩</button>
 <div class="todo-input-title">
     <h1 [attr.data-text]="headerPhrase">{{ headerPhrase }}</h1>
 </div>
 
 <form (ngSubmit)="onFormSubmit()">
-
     <label for="todo-input">
        <p class="input-instruction">
  Type your task here:
@@ -40,11 +40,11 @@
 <div class="utility-buttons">
 
     <span [title]="!newTaskText.trim() ? 'There is nothing to submit' : ''" class="submit-tooltip-wrapper">
-    <button type="submit" class="submit-button" [disabled]="!newTaskText.trim()">
+    <button type="submit" class="submit-button" [disabled]="!newTaskText.trim()" (click)="close()">
         SUBMIT ⮞
     </button></span>
 </div>
-
 </form>
-</div>
+  </div>
+
 </div>

@@ -1,11 +1,12 @@
-<button class="createtodo" routerLink="/createtodo"><span>✚</span>CREATE NEW TO-DO TASK</button>
+<!-- <button class="createtodo" routerLink="/created"><span>✚</span>CREATE NEW TO-DO TASK</button> -->
+<button class="create-task-btn" (click)="showPopup = true">Create New To-Do Task +</button>
+<app-todo-input *ngIf="showPopup" (closePopup)="showPopup = false"></app-todo-input>
+
 <div class="kanban-board" cdkDropListGroup>
 
   <div class="container">
     <div class="list-top-bar">
         <h2>To Do</h2>
-        <button>+</button>
-
     </div>
     <div
       cdkDropList

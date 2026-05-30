@@ -5,6 +5,7 @@ import { TodoService } from '../../services/todo.service';
 import { TodoListLogicService } from '../../services/todo_component.service';
 import { CdkDragDrop, CdkDrag, CdkDropList,CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { RouterLink } from "@angular/router";
+import { TodoInputComponent } from '../todo_input/todo_input';
 
 
   @Component({
@@ -12,7 +13,7 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   templateUrl: './todo_component.html',
   styleUrls: ['./todo_component.scss'],
-  imports: [CommonModule, CdkDropListGroup, CdkDropList, CdkDrag, RouterLink]
+  imports: [CommonModule, CdkDropListGroup, CdkDropList, CdkDrag, RouterLink, TodoInputComponent]
 })
 
 
@@ -21,7 +22,7 @@ export class TodoComponent implements OnInit {
   todoList: Todo[] = [];
   doingList: Todo[] = [];
   doneList: Todo[] = [];
-
+showPopup = false;
   constructor(private todoService: TodoService) {}
 
 ngOnInit() {
@@ -79,6 +80,10 @@ console.log('Status after change:', movedTodo.status);
   }
   deleteTodo(id: number | undefined) {
     if (id) { this.todoService.deleteTodo(id);} 
+  this.todoList = this.todoList.filter(todo => todo.id !== id);
+    this.doingList = this.doingList.filter(todo => todo.id !== id);
+    this.doneList = this.doneList.filter(todo => todo.id !== id);
+  
   }
   toggleDescription(item: any) {
     item.showDescription = !item.showDescription;

@@ -1,5 +1,5 @@
 import { TodoService } from './../../services/todo.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Todo } from '../../models/todo.models';
 import { TodoInputLogicService } from '../../services/todo_input.service';
@@ -13,7 +13,13 @@ import { TodoInputLogicService } from '../../services/todo_input.service';
 })
 
 
+
 export class TodoInputComponent implements OnInit {
+  @Output() closePopup = new EventEmitter<void>();
+  
+  close() {
+    this.closePopup.emit();
+  }
 
   newTaskText: string = '';
   newTaskDescription: string = '';
