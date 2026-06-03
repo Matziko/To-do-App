@@ -1,13 +1,18 @@
-<!-- <button class="createtodo" routerLink="/created"><span>✚</span>CREATE NEW TO-DO TASK</button> -->
-<button class="create-task-btn" (click)="showPopup = true">Create New To-Do Task +</button>
+<section class="style-main">
+
+
+<div class="top-bar">
+
+    <button class="create-task-btn style1" (click)="showPopup = true">Create New To-Do Task +</button>
+    <button class="reload-btn style1" onClick="window.location.reload()">Reload ↻</button>
+    <!-- <button class="theme-btn style1 theme1" onclick="">🔵</button> -->
+</div>
 <app-todo-input *ngIf="showPopup" (closePopup)="showPopup = false"></app-todo-input>
 
 <div class="kanban-board" cdkDropListGroup>
 
-  <div class="container">
-    <div class="list-top-bar">
-        <h2>To Do</h2>
-    </div>
+  <div class="container list1">
+        <h2>・・・・・ 🎯TO-DO🎯 ・・・・・</h2>
     <div
       cdkDropList
       id="todo-list"
@@ -15,7 +20,7 @@
       (cdkDropListDropped)="drop($event)"
       class="example-list">
       @for (item of todoList; track item.id) {
-        <div class="example-box" cdkDrag [class]="item.priority">
+        <div class="default-box" cdkDrag [class]="item.priority">
 
             <div class="card-header">
                 <p class="task-title" (click)="toggleDescription(item)">{{item.task}}</p>
@@ -41,8 +46,8 @@
     </div>
     </div>
 
-  <div class="container">
-    <h2>Doing</h2>
+  <div class="container list2">
+    <h2>・・・・・ ⏳DOING⏳ ・・・・・</h2>
     <div
       cdkDropList
       id="doing-list"
@@ -50,7 +55,7 @@
       (cdkDropListDropped)="drop($event)"
       class="example-list">
       @for (item of doingList; track item.id) {
-        <div class="example-box" cdkDrag [class]="item.priority">
+        <div class="default-box" cdkDrag [class]="item.priority">
           
             <div class="card-header">
                 <p class="task-title" (click)="toggleDescription(item)">{{item.task}}</p>
@@ -75,8 +80,8 @@
     </div>
   </div>
 
-  <div class="container">
-    <h2>Done</h2>
+  <div class="container list3">
+    <h2>・・・・・ 🎉DONE🎉 ・・・・・</h2>
     <div
       cdkDropList
       id="done-list"
@@ -84,7 +89,7 @@
       (cdkDropListDropped)="drop($event)"
       class="example-list">
       @for (item of doneList; track item.id) {
-        <div class="example-box" cdkDrag [class]="item.priority">
+        <div class="default-box" cdkDrag [class]="item.priority">
           
             <div class="card-header">
                 <p class="task-title" (click)="toggleDescription(item)">{{item.task}}</p>
@@ -110,3 +115,4 @@
   </div>
   </div>
 
+</section>
